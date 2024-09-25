@@ -1,0 +1,15 @@
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+.vscode/
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Environment Variables
+.env
