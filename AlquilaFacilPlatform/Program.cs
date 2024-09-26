@@ -221,6 +221,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseCors("AllowAllPolicy");
 
 app.UseRequestAuthorization();
