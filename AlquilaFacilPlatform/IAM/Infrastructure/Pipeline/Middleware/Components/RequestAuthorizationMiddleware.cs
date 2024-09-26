@@ -52,6 +52,6 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
     Console.WriteLine("Successful authorization. Updating Context...");
     context.Items["User"] = user;
     Console.WriteLine("Continuing with Middleware Pipeline");
-    await _next(context);
+    await next(context);
 }
 }
