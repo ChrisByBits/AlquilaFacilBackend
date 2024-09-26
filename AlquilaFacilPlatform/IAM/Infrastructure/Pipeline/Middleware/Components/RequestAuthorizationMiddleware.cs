@@ -32,7 +32,7 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
     if (allowAnonymous)
     {
         Console.WriteLine("Skipping authorization");
-        await _next(context);
+        await next(context);
         return;
     }
 
