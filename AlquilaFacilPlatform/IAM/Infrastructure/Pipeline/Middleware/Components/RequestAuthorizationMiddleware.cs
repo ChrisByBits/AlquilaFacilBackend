@@ -23,7 +23,12 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
     Console.WriteLine("Entering InvokeAsync");
 
     var endpoint = context.Request.HttpContext.GetEndpoint();
-    if (endpoint == null) throw new InvalidOperationException("Endpoint not found.");
+    if (endpoint == null)
+    {
+        // Antes de lanzar la excepción, puedes imprimir detalles adicionales.
+        Console.WriteLine($"No endpoint found for the path: {context.Request.Path}");
+        throw new InvalidOperationException("Endpoint not found.");
+    }
 
     var allowAnonymous = endpoint.Metadata
         .Any(m => m.GetType() == typeof(AllowAnonymousAttribute));
